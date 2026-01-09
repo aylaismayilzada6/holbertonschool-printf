@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
+
+			/* Handle '%' at end of string */
+			if (!format[i])
+				return (-1);
+
 			j = 0;
 			printed = 0;
 
