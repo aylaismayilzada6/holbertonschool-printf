@@ -49,3 +49,50 @@ int print_percent(va_list args)
 	return (1);
 }
 
+
+
+/**
+ * print_int - prints a signed integer
+ * @args: argument list
+ *
+ * Return: number of characters printed
+ */
+int print_int(va_list args)
+{
+    int n = va_arg(args, int);
+    char buffer[12]; /* Enough for INT_MIN and '\0' */
+    int i = 0, count = 0;
+    unsigned int num;
+
+    if (n < 0)
+    {
+        write(1, "-", 1);
+        count++;
+        num = -n;
+    }
+    else
+        num = n;
+
+    /* convert number to string in reverse */
+    if (num == 0)
+    {
+        write(1, "0", 1);
+        return (1);
+    }
+
+    while (num)
+    {
+        buffer[i++] = (num % 10) + '0';
+        num /= 10;
+    }
+
+    /* print in correct order */
+    while (--i >= 0)
+    {
+        write(1, &buffer[i], 1);
+        count++;
+    }
+
+    return (count);
+}
+

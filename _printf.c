@@ -10,7 +10,9 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j, count = 0, printed;
 	va_list args;
-	spec_t specs[] = {
+	spec_t specs[] = {  
+		{"d", print_int},
+    		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
