@@ -50,5 +50,5 @@ _printf("Number: %d\n", 42);
 .fi
 
 .SH AUTHOR
-Ayla Ismayilzada
+Ayla Ismayilzada, Turkan Bagirzada 
 
